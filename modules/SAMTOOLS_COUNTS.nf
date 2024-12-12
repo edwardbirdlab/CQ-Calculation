@@ -5,13 +5,11 @@ process SAMTOOLS_COUNTS {
     input:
         tuple val(sample), file(alignment)
     output:
-        tuple val(sample), path("${sample}_align.txt"), emit: stats
+        tuple val(sample), path("${sample}_counts.txt"), emit: stats
 
     script:
 
     """
-    samtools view -Sb ${alignment} > ${sample}.bam
-    samtools index ${sample}.bam
-    samtools idxstats ${sample}.bam> ${sample}_counts.txt
+    samtools idxstats ${alignment} > ${sample}_counts.txt
     """
 }
