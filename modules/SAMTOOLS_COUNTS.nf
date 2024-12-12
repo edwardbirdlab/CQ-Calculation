@@ -12,6 +12,6 @@ process SAMTOOLS_COUNTS {
     """
     samtools view -Sb ${alignment} > ${sample}.bam
     samtools index ${sample}.bam
-    samtools idxstats ${sample}.bam> ${sanple}_counts.txt
+    samtools idxstats ${sample}.bam> ${sample}_counts.txt
     """
 }
