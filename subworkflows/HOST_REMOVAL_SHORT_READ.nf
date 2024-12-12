@@ -9,6 +9,7 @@ params.fastp_q  = Q score for trimming
 
 include { BOWTIE2 as BOWTIE2 } from '../modules/BOWTIE2.nf'
 include { SAMTOOLS_STATS as SAMTOOLS_STATS } from '../modules/SAMTOOLS_STATS.nf'
+include { SAMTOOLS_COUNTS as SAMTOOLS_COUNTS } from '../modules/SAMTOOLS_COUNTS.nf'
 
 workflow HOST_REMOVAL_SHORT_READ {
     take:
@@ -20,5 +21,6 @@ workflow HOST_REMOVAL_SHORT_READ {
 
         BOWTIE2(ch_for_bowtie)
         SAMTOOLS_STATS(BOWTIE2.out.sam)
+        SAMTOOLS_COUNTS(BOWTIE2.out.sam)
 
 }
