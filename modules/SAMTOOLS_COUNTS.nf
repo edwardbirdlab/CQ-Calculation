@@ -10,6 +10,7 @@ process SAMTOOLS_COUNTS {
     script:
 
     """
-    samtools idxstats ${alignment} > ${sample}_counts.txt
+    samtools sort -n -m ${task.memory.toGiga()}G -@ ${task.cpus} ${alignment} -o ${sample}_sorted.sam
+    samtools idxstats $${sample}_sorted.sam > ${sample}_counts.txt
     """
 }
