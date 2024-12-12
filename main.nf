@@ -15,7 +15,7 @@ if (params.workflow_opt == 'shortread_meta') {
 
     }
 
-include { SHORT_READ_METAGENOMIC as SHORT_READ_METAGENOMIC } from './workflows/SHORT_READ_METAGENOMIC.nf'
+include { CQ_Calculation as SHORT_READ_METAGENOMIC } from './workflows/SHORT_READ_METAGENOMIC.nf'
 include { SR_MULTIQC as SR_MULTIQC } from './workflows/SR_MULTIQC.nf'
 
 
