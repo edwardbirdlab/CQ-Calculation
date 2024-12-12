@@ -11,6 +11,6 @@ process SAMTOOLS_COUNTS {
 
     """
     samtools sort -n -m ${task.memory.toGiga()}G -@ ${task.cpus} ${alignment} -o ${sample}_sorted.sam
-    samtools idxstats $${sample}_sorted.sam > ${sample}_counts.txt
+    samtools idxstats ${sample}_sorted.sam > ${sample}_counts.txt
     """
 }
