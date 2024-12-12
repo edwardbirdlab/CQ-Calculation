@@ -1,5 +1,5 @@
 process SAMTOOLS_COUNTS {
-    label 'verylow'
+    label 'samtoolssort'
     container 'ebird013/samtools:1.17'
 
     input:
