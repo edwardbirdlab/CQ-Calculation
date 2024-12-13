@@ -1,5 +1,5 @@
 process SAMTOOLS_COUNTS {
-    label 'samtoolssort'
+    label 'midmem'
     container 'ebird013/samtools:1.17'
 
     input:
@@ -10,8 +10,7 @@ process SAMTOOLS_COUNTS {
     script:
 
     """
-    samtools view -bS ${alignment} > ${sample}.bam
-    samtools sort -m ${task.memory.toGiga()}G -@ ${task.cpus} ${sample}.bam -o ${sample}_sorted.bam
-    samtools idxstats ${sample}_sorted.bam > ${sample}_counts.txt
+    samtools index ${alignment}
+    samtools idxstats ${alignment} > ${sample}_counts.txt
     """
 }
